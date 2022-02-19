@@ -24,7 +24,7 @@ public class TestMail {
     }
 
     /*
-    Сам тест почты
+    Тест почты
     */
     @Test
     public void mailTest() throws InterruptedException {
