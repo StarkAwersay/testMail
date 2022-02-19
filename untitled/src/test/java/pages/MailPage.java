@@ -1,18 +1,17 @@
 package pages;
 
-import chromeDriver.getChromeDriver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import java.time.Duration;
-
-import static contants.contants.MYMAIL;
-import static contants.contants.SUBJECT;
+import static contants.Constants.MYMAIL;
+import static contants.Constants.SUBJECT;
 
 
-public class mailPage extends mainPage {
+public class MailPage extends PageFactory {
+    private WebDriver driver;
     @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[3]/div[2]/div[1]/div/div/div/a")
     private WebElement sendLatter;
     @FindBy(className = "composeYabbles")
@@ -39,8 +38,9 @@ public class mailPage extends mainPage {
     public WebElement refreshButton;
 
 
-    public mailPage(WebDriver driver) {
-        super(driver);
+    public MailPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     /*
