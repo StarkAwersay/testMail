@@ -17,7 +17,7 @@ public class TestMail {
     Открываем браузер в максимальном разрешении
     */
     @BeforeMethod
-    public void BeforeTest() {
+    public void BeforeMethod() {
         driver = GetChromeDriver.getChromeDriver();
         driver.manage().window().maximize();
     }
