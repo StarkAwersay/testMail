@@ -49,6 +49,5 @@ public class TestMail {
     @AfterMethod
     public void close() {
         driver.close();
-        System.out.println("Test close!");
     }
 }

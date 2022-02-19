@@ -1,0 +1,1 @@
+{"uuid":"1176e7e1-fea6-46e2-bac9-c8e66ad7c470","name":"test.TestMail.BeforeTest","children":["3d192783-22ce-47cc-9b27-6cb97f70a457"],"description":"","befores":[{"name":"BeforeTest","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1645296269300,"stop":1645296271076}],"afters":[],"start":1645296269298,"stop":1645296271077}
