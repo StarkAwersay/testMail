@@ -13,7 +13,6 @@ import static contants.Constants.MAILPAGE;
 
 public class TestMail {
     private WebDriver driver;
-
     /*
     Открываем браузер в максимальном разрешении
     */
