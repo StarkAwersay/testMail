@@ -1,17 +1,17 @@
 package test;
 
-import chromeDriver.getChromeDriver;
+import chromeDriver.GetChromeDriver;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.mailPage;
-import pages.mainPage;
+import pages.MailPage;
+import pages.MainPage;
 
-import static contants.contants.MAILPAIG;
+import static contants.Constants.MAILPAGE;
 
-public class testMail {
+public class TestMail {
     private WebDriver driver;
 
     /*
@@ -19,7 +19,7 @@ public class testMail {
     */
     @BeforeMethod
     public void BeforeTest() {
-        driver = getChromeDriver.getChromeDriver();
+        driver = GetChromeDriver.getChromeDriver();
         driver.manage().window().maximize();
     }
 
@@ -28,9 +28,9 @@ public class testMail {
     */
     @Test
     public void mailTest() throws InterruptedException {
-        mainPage mp = new mainPage(driver);
-        mailPage mlp = new mailPage(driver);
-        driver.get(MAILPAIG);
+        MainPage mp = new MainPage(driver);
+        MailPage mlp = new MailPage(driver);
+        driver.get(MAILPAGE);
         mp.authorization();
         mlp.searchSimbirsoftTheme();
         Thread.sleep(3000);

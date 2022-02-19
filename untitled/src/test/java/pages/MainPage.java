@@ -8,10 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-import static contants.contants.LOGIN;
-import static contants.contants.PASSWORD;
+import static contants.Constants.LOGIN;
+import static contants.Constants.PASSWORD;
 
-public class mainPage extends PageFactory {
+public class MainPage extends PageFactory {
     private WebDriver driver;
     @FindBy(xpath = "//*[@id=\"index-page-container\"]/div/div[2]/div/div/div[4]/a[2]")
     private WebElement authorizationButton;
@@ -21,7 +21,7 @@ public class mainPage extends PageFactory {
     private WebElement password;
 
 
-    public mainPage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
