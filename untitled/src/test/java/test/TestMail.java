@@ -13,18 +13,17 @@ import static contants.Constants.MAILPAGE;
 
 public class TestMail {
     private WebDriver driver;
-
     /*
     Открываем браузер в максимальном разрешении
     */
     @BeforeMethod
-    public void BeforeTest() {
+    public void BeforeMethod() {
         driver = GetChromeDriver.getChromeDriver();
         driver.manage().window().maximize();
     }
 
     /*
-    Сам тест почты
+    Тест почты
     */
     @Test
     public void mailTest() throws InterruptedException {
@@ -49,6 +48,5 @@ public class TestMail {
     @AfterMethod
     public void close() {
         driver.close();
-        System.out.println("Test close!");
     }
 }
