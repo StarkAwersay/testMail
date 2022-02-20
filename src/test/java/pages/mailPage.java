@@ -4,40 +4,41 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-import static contants.contants.MYMAIL;
-import static contants.contants.SUBJECT;
+import static Constants.Constants.MYMAIL;
+import static Constants.Constants.SUBJECT;
 
 
-public class mailPage extends mainPage {
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[3]/div[2]/div[1]/div/div/div/a")
+public class MailPage extends PageFactory {
+    private WebDriver driver;
+    @FindBy(xpath = "//*[@title=\"Написать (w, c)\"]")
     private WebElement sendLatter;
     @FindBy(className = "composeYabbles")
     private WebElement recipientMessage;
     @FindBy(name = "subject")
     private WebElement subjects;
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[10]/div/div/div[2]/div/div[2]/div/div[1]/div[1]/div[2]/div/div[1]/div[1]/button")
+    @FindBy(xpath = "//button[contains(@class,'Button2 Button2_pin_circle-circle Button2_view_default Button2_size_l')]")
     private WebElement sendButton;
     @FindBy(xpath = "//*[@id=\"cke_1_contents\"]/div")
     private WebElement textMassage;
     @FindBy(className = "textinput__control")
     private WebElement searchBar;
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[2]/div/div/div[1]/div[2]/div/div/div/div[1]/form/div/span/div/button[1]")
-    private WebElement searchOptions;
     @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[3]/div[3]/div[1]/div/div/button[3]")
     private WebElement folderButton;
     @FindBy(xpath = "//div[contains(@class,'control menu__item menu__item_type_option')]/span[contains(text(),'Входящие')]")
     private WebElement incomingMessages;
-    @FindBy(xpath = "//div[contains(@class,'mail-MessagesSearchInfo js-messages-header')]/span[contains(@class,'mail-MessagesSearchInfo-Title')]/span[contains(@class,'mail-MessagesSearchInfo-Title_misc nb-with-xs-left-gap')]")
+    @FindBy(xpath = "//span[contains(@class,'mail-MessagesSearchInfo-Title')]/span[contains(text(),'пис')]")
     public WebElement numberOfLetters;
     @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[2]/div/div/div[1]/div[2]/div/div/div/div[1]/form/button")
     private WebElement searchMailButton;
-    @FindBy(css = "[class='mail-ComposeButton-Refresh js-main-action-refresh ns-action']")
+    @FindBy(xpath= "//span[contains(@title,'Проверить, есть ли новые письма (F9)')]")
     public WebElement refreshButton;
 
 
-    public mailPage(WebDriver driver) {
-        super(driver);
+    public MailPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     /*
@@ -59,11 +60,13 @@ public class mailPage extends mainPage {
     /*
     Поиск количества писем с темой "Simbirsoft theme"
     */
-    public void searchSimbirsoftTheme() {
+    public void searchSimbirsoftTheme() throws InterruptedException {
         searchBar.click();
         searchBar.sendKeys(SUBJECT, Keys.ENTER);
         folderButton.click();
         incomingMessages.click();
+        searchMailButton.click();
+        Thread.sleep(1000);
     }
 
     /*
@@ -71,8 +74,9 @@ public class mailPage extends mainPage {
     */
     public void newSearchSimbirsoftTheme() throws InterruptedException {
         searchMailButton.click();
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         refreshButton.click();
+        Thread.sleep(1000);
     }
 
 }

@@ -1,7 +1,7 @@
-package contants;
+package Constants;
 
-public class contants {
-    public static final String MAILPAIG = "https://mail.yandex.ru/";
+public class Constants {
+    public static final String MAILPAGE = "https://mail.yandex.ru/";
     public static final String LOGIN = "seeshstark";
     public static final String PASSWORD = "Qwertyreverse1337";
     public static final String MYMAIL = "Seeshstark@yandex.ru";
