@@ -14,7 +14,7 @@ import static Constants.Constants.PASSWORD;
 
 public class MainPage extends PageFactory {
     private WebDriver driver;
-    @FindBy(xpath = "//*[@id=\"index-page-container\"]/div/div[2]/div/div/div[4]/a[2]")
+    @FindBy(xpath = "//a[contains(@class,\"Enter with-shadow\")]")
     private WebElement authorizationButton;
     @FindBy(id = "passp-field-login")
     private WebElement login;

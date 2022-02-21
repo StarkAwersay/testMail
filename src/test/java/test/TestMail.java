@@ -2,7 +2,6 @@ package test;
 
 import chromeDriver.GetChromeDriver;
 import io.qameta.allure.Description;
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -36,10 +35,10 @@ public class TestMail {
         driver.get(MAILPAGE);
         mp.authorization();
         mlp.searchSimbirsoftTheme();
-        int oldCountMassage = Integer.parseInt(mlp.numberOfLetters.getText().replaceAll("\\D+", ""));
+        int oldCountMassage = mlp.getCountMassages();
         mlp.sendMassage();
         mlp.newSearchSimbirsoftTheme();
-        int newCountMassage = Integer.parseInt(mlp.numberOfLetters.getText().replaceAll("\\D+", ""));
+        int newCountMassage = mlp.getCountMassages();
         Assert.assertEquals(newCountMassage, oldCountMassage + 1, "Количество писем с темой 'Simbirsoft theme' не увеличилось ");
     }
     /*

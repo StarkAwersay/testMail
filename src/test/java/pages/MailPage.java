@@ -19,19 +19,19 @@ public class MailPage extends PageFactory {
     private WebElement recipientMessage;
     @FindBy(name = "subject")
     private WebElement subjects;
-    @FindBy(xpath = "//button[contains(@class,'Button2 Button2_pin_circle-circle Button2_view_default Button2_size_l')]")
+    @FindBy(xpath = "//button[contains(@class,' Button2_size_l')]")
     private WebElement sendButton;
     @FindBy(xpath = "//*[@id=\"cke_1_contents\"]/div")
     private WebElement textMassage;
     @FindBy(className = "textinput__control")
     private WebElement searchBar;
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[3]/div[3]/div[1]/div/div/button[3]")
+    @FindBy(xpath = "//*[text()=\"Папки\"]/parent::span/parent::button")
     private WebElement folderButton;
-    @FindBy(xpath = "//div[contains(@class,'control menu__item menu__item_type_option')]/span[contains(text(),'Входящие')]")
+    @FindBy(xpath = "//div[contains(@class,'type_option')]/span[contains(text(),'Входящие')]")
     private WebElement incomingMessages;
-    @FindBy(xpath = "//span[contains(@class,'mail-MessagesSearchInfo-Title')]/span[contains(text(),'пис')]")
+    @FindBy(xpath = "//span[contains(@class,'Message')]/span[contains(text(),'пис')]")
     public WebElement numberOfLetters;
-    @FindBy(xpath = "//*[@id=\"js-apps-container\"]/div[2]/div[7]/div/div[2]/div/div/div[1]/div[2]/div/div/div/div[1]/form/button")
+    @FindBy(xpath = "//*[contains(@class,'search-input__form-button')]")
     private WebElement searchMailButton;
     @FindBy(xpath= "//span[contains(@title,'Проверить, есть ли новые письма (F9)')]")
     public WebElement refreshButton;
@@ -70,6 +70,14 @@ public class MailPage extends PageFactory {
         incomingMessages.click();
         searchMailButton.click();
         Thread.sleep(1500);
+    }
+    /*
+    Сбор количества писем с темой 'Simbirsoft theme'
+    */
+    @Step("Сбор количества писем с темой 'Simbirsoft theme")
+    public int getCountMassages(){
+        int CountMassage = Integer.parseInt(numberOfLetters.getText().replaceAll("\\D+", ""));
+        return CountMassage;
     }
 
     /*
