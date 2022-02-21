@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -44,6 +45,7 @@ public class MailPage extends PageFactory {
     /*
     Отправка сообщения с темой "Simbirsoft theme"
     */
+    @Step("Отправка сообщения")
     public void sendMassage() {
         sendLatter.click();
         recipientMessage.click();
@@ -60,23 +62,25 @@ public class MailPage extends PageFactory {
     /*
     Поиск количества писем с темой "Simbirsoft theme"
     */
+    @Step("Поиск количества писем с темой 'Simbirsoft theme'")
     public void searchSimbirsoftTheme() throws InterruptedException {
         searchBar.click();
         searchBar.sendKeys(SUBJECT, Keys.ENTER);
         folderButton.click();
         incomingMessages.click();
         searchMailButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(1500);
     }
 
     /*
     Поиск количества писем с темой "Simbirsoft theme" после отправки сообщения
     */
+    @Step("Обновление страницы с поиском писем с темой 'Simbirsoft theme'")
     public void newSearchSimbirsoftTheme() throws InterruptedException {
         searchMailButton.click();
         Thread.sleep(1000);
         refreshButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
     }
 
 }

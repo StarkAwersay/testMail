@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class MainPage extends PageFactory {
     /*
     Авторизация на почте яндекса
     */
+    @Step("Авторизация на Яндекс почте")
     public void authorization() {
         authorizationButton.click();
         login.click();

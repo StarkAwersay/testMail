@@ -1,6 +1,8 @@
 package test;
 
 import chromeDriver.GetChromeDriver;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -27,6 +29,7 @@ public class TestMail {
     Тест почты
     */
     @Test
+    @Description("Тест почты")
     public void mailTest() throws InterruptedException {
         MainPage mp = new MainPage(driver);
         MailPage mlp = new MailPage(driver);
@@ -39,7 +42,6 @@ public class TestMail {
         int newCountMassage = Integer.parseInt(mlp.numberOfLetters.getText().replaceAll("\\D+", ""));
         Assert.assertEquals(newCountMassage, oldCountMassage + 1, "Количество писем с темой 'Simbirsoft theme' не увеличилось ");
     }
-
     /*
     Закрываем драйвер
     */
