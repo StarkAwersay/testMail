@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.given;
 
-public class GetEmail {
+public class ResponseUserApi {
     public static RequestSpecification returnRequestSpecification() {
         RequestSpecification requestSpecification = RestAssured.given();
         requestSpecification.baseUri("https://reqres.in/api");
