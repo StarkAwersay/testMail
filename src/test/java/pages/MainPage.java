@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-import static contants.contants.LOGIN;
-import static contants.contants.PASSWORD;
+import static Constants.Constants.LOGIN;
+import static Constants.Constants.PASSWORD;
 
-public class mainPage extends PageFactory {
+public class MainPage extends PageFactory {
     private WebDriver driver;
-    @FindBy(xpath = "//*[@id=\"index-page-container\"]/div/div[2]/div/div/div[4]/a[2]")
+    @FindBy(xpath = "//a[contains(@class,\"Enter with-shadow\")]")
     private WebElement authorizationButton;
     @FindBy(id = "passp-field-login")
     private WebElement login;
@@ -21,7 +22,7 @@ public class mainPage extends PageFactory {
     private WebElement password;
 
 
-    public mainPage(WebDriver driver) {
+    public MainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -29,6 +30,7 @@ public class mainPage extends PageFactory {
     /*
     Авторизация на почте яндекса
     */
+    @Step("Авторизация на Яндекс почте")
     public void authorization() {
         authorizationButton.click();
         login.click();
